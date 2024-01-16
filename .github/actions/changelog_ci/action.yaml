@@ -1,0 +1,6 @@
+name: Generate changelogs
+description: Generate changelogs using https://github.com/marketplace/actions/changelog-ci
+runs:
+  using: 'composite'
+  steps:
+    - uses: saadmk11/changelog-ci@v1.1.2
