@@ -1,0 +1,10 @@
+name: Generate changelogs
+description: Generate changelogs using https://github.com/requarks/changelog-action
+runs:
+  using: 'composite'
+  steps:
+    - name: Update CHANGELOG
+      uses: requarks/changelog-action@v1
+      with:
+        token: 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
+        tag: v0.0.1
