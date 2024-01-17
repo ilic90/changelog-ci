@@ -1,0 +1,8 @@
+name: Pull request
+on: pull_request
+jobs:
+  changelog_action:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/changelog_action

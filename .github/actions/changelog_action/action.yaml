@@ -1,0 +1,35 @@
+name: Generate changelogs
+description: Generate changelogs using https://github.com/requarks/changelog-action
+runs:
+  using: 'composite'
+  steps:
+    - name: Find latest tag
+      run: |
+        echo "LATEST_TAG=$(git tag -l | sed -n 2p)" >> $GITHUB_ENV
+        echo Found tag: $(git tag -l | sed -n 2p)
+      shell: bash
+    - name: Echo latest tag from env
+      run: |
+        echo Env tag: ${{ env.LATEST_TAG }}
+      shell: bash
+    - name: Changelog action
+      id: changelog
+      uses: requarks/changelog-action@v1
+      with:
+        token: ${{ github.token }}
+        tag: v0.0.2
+    - name: Create Release
+      uses: ncipollo/release-action@v1.12.0
+      with:
+        allowUpdates: true
+        draft: false
+        makeLatest: true
+        name: v0.0.2
+        body: ${{ steps.changelog.outputs.changes }}
+        token: ${{ github.token }}
+    - name: Commit CHANGELOG.md
+      uses: stefanzweifel/git-auto-commit-action@v4
+      with:
+        branch: main
+        commit_message: 'docs: update CHANGELOG.md for v0.0.2 [skip ci]'
+        file_pattern: CHANGELOG.md
