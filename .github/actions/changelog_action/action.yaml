@@ -5,9 +5,12 @@ runs:
   steps:
     - name: Find latest tag
       run: |
-        LATEST_TAG=$(git tag -l | sed -n 2p)
-        echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_ENV
-        echo Found tag: $LATEST_TAG
+        echo "LATEST_TAG=$(git tag -l | sed -n 2p)" >> $GITHUB_ENV
+        echo Found tag: $(git tag -l | sed -n 2p)
+      shell: bash
+    - name: Echo latest tag from env
+      run: |
+        echo Env tag: ${{ env.LATEST_TAG }}
       shell: bash
     - name: Changelog action
       uses: requarks/changelog-action@v1
