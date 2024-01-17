@@ -3,8 +3,14 @@ description: Generate changelogs using https://github.com/requarks/changelog-act
 runs:
   using: 'composite'
   steps:
-    - name: Update CHANGELOG
+    - name: Find latest tag
+      id: find_latest_tag
+      run: |
+        LATEST_TAG=$(git tag -l | sed -n 2p)
+        echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_OUTPUT
+        echo Found tag: $LATEST_TAG
+    - name: Changelog action
       uses: requarks/changelog-action@v1
       with:
-        token: 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
-        tag: v0.0.1
+        token: ${{ github.token }}
+        tag: ${{ steps.find_latest_tag.outputs.LATEST_TAG }}
