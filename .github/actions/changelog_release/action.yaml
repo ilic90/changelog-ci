@@ -1,7 +1,6 @@
 name: Build changelog and create a release
 description: Generate changelogs and create a release using https://github.com/marketplace/actions/release-changelog-builder
 runs:
-  using: 'composite'
   steps:
     - name: Build Changelog
       id: build_changelog
