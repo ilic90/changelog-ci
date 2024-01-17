@@ -16,4 +16,4 @@ runs:
       uses: requarks/changelog-action@v1
       with:
         token: ${{ github.token }}
-        tag: v0.0.1
+        tag: v0.0.2
