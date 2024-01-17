@@ -7,7 +7,7 @@ runs:
       id: build_changelog
       uses: mikepenz/release-changelog-builder-action@v3
       env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Create Release
       uses: mikepenz/action-gh-release@v0.2.0-a03 #softprops/action-gh-release
       with:
