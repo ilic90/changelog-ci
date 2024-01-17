@@ -9,6 +9,7 @@ runs:
         LATEST_TAG=$(git tag -l | sed -n 2p)
         echo "LATEST_TAG=$LATEST_TAG" >> $GITHUB_OUTPUT
         echo Found tag: $LATEST_TAG
+      shell: bash
     - name: Changelog action
       uses: requarks/changelog-action@v1
       with:
