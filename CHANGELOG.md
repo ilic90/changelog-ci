@@ -1,3 +1,10 @@
+# Version: v0.0.1
+
+* [#7](https://github.com/ilic90/changelog-ci/pull/7): feat: add index page
+* [#8](https://github.com/ilic90/changelog-ci/pull/8): feat: index page
+* [#9](https://github.com/ilic90/changelog-ci/pull/9): feat: index page
+
+
 # Changelog
 
 All notable changes to this project will be documented in this file.
