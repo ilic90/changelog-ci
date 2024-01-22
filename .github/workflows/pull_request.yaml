@@ -1,7 +1,5 @@
 name: Pull request
-on:
-  pull_request:
-    types: [ opened ]
+on: pull_request
 jobs:
   changelog_ci:
     runs-on: ubuntu-latest
