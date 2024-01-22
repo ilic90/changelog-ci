@@ -10,3 +10,4 @@ jobs:
           committer_username: ilic90
           committer_email: dusan.ilic.90.nis@gmail.com
           release_version: v0.0.1
+          github_token: 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
