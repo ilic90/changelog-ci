@@ -7,7 +7,6 @@
       [
         "@semantic-release/commit-analyzer",
         {
-          "preset": "conventionalcommits",
           "releaseRules": [
             { "type": "doc", "release": "patch" },
             { "type": "refactor", "release": "patch" },
