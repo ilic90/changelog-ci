@@ -4,11 +4,19 @@
       "main"
     ],
     "plugins": [
-        [
-            "@semantic-release/changelog",
-            {
-                "changelogFile": "CHANGELOG.md"
-            }
-        ]
+      [
+        "@semantic-release/commit-analyzer",
+        {
+          "preset": "conventionalcommits",
+          "releaseRules": [
+            { "type": "doc", "release": "patch" },
+            { "type": "refactor", "release": "patch" },
+            { "type": "fix", "release": "patch" },
+            { "type": "feat", "release": "minor" },
+            { "type": "bc", "release": "major" },
+            { "type": "!", "release": "major" }
+          ]
+        }
+      ]
     ]
   }
